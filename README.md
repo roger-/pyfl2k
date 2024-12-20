@@ -57,3 +57,7 @@ The advantage here is that other tasks can be executed instead of having to slee
 A basic sine wave generator is in `test_async.py` and can produce quadrature sine waves using two channels:
 
 ![Screenshot 2024-12-20 155212](https://github.com/user-attachments/assets/4a70291f-d079-4228-93b3-5634f96b37ce)
+
+# Issues
+
+I've noticed that on slower computers there may be no signal output (nor software crashes / errors) at higher sample rates (e.g. > 10 MS/s). Also at lower samples rates, the output may abruptly stop after a few seconds, again with no indication in the software. I have also replicated this in other software, like [fl2k_signal_generator](https://github.com/l29ah/fl2k_signal_generator), so I suspect a library issue.
