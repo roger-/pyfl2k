@@ -14,7 +14,7 @@ def load_library():
     driver_files = []
     driver_files += [lambda : find_library('osmo-fl2k'), lambda : find_library('libosmo-fl2k')]
     driver_files += ['libosmo-fl2k.so.0']  # Linux
-    driver_files += ['libosmo-fl2k.dll', '../libosmo-fl2k.dll']   # Windows
+    driver_files += ['./libosmo-fl2k.dll', '../libosmo-fl2k.dll']   # Windows
     driver_files += ['libosmo-fl2k.dylib'] # MacOS
     
     lib = None
