@@ -55,9 +55,18 @@ The advantage here is that other tasks can be executed instead of having to slee
 # Sample output
 
 A basic sine wave generator is in `test_async.py` and can produce quadrature sine waves using two channels:
-
-![Screenshot 2024-12-20 155212](https://github.com/user-attachments/assets/4a70291f-d079-4228-93b3-5634f96b37ce)
+![ScreenImg](https://github.com/user-attachments/assets/a0c1aa43-331f-4c79-9267-df6ac945e604)
 
 # Issues
 
-I've noticed that on slower computers there may be no signal output (nor software crashes / errors) at higher sample rates (e.g. > 10 MS/s). Also at lower samples rates, the output may abruptly stop after a few seconds, again with no indication in the software. I have also replicated this in other software, like [fl2k_signal_generator](https://github.com/l29ah/fl2k_signal_generator), so I suspect a library issue.
+I've encountered issues with my particular device where the output seems to stop after several seconds to minutes, with no indication on the software side (errors or even crashes). For example, running the official test application `fl2k_test -s 80e6` produces this output:
+
+```
+real sample rate: 80005603 current PPM: 70 cumulative PPM: 60
+real sample rate: 80005530 current PPM: 69 cumulative PPM: 61
+real sample rate: 88466679 current PPM: 105834 cumulative PPM: 6290
+```
+
+Monitoring the output of the fl2k device on an oscilloscope shows a clear signal until the jump in PPM value when it disappears. I have also replicated this in other software, like [fl2k_signal_generator](https://github.com/l29ah/fl2k_signal_generator).
+
+It seems to happen more often on slower computers and with higher sample rates. I suspect either a hardware or library issue is responsible.
